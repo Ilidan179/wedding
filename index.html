@@ -56,35 +56,11 @@
 
             /* Отступы от краёв */
         /*    padding: 0 16px;
-        /*}
-
-        /* .hero h1 {
-            font-family: 'Mr De Haviland', 'Great Vibes', cursive;
-            font-size: clamp(58px, 11vw, 130px);
-            font-weight: 400;
-            font-style: italic;
-            letter-spacing: 8px;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
-            color: white;
-            white-space: nowrap;
-            transform: scaleX(1.05);
         } */
 
-        /* .hero h1 {
-            font-family: 'Great Vibes', 'Mr De Haviland', 'Playfair Display', cursive;
-            font-size: clamp(36px, 8vw, 110px);
-            font-weight: 400;
-            font-style: italic;
-            letter-spacing: 4px;
-            text-shadow: 0 4px 18px rgba(0,0,0,0.25);
-            color: white;
-            white-space: normal;
-            word-break: keep-all;
-            line-height: 1.2;
-            padding: 0 12px;
-        } */
+        
 
-        .hero h1 {
+        /* .hero h1 {
             font-family: 'Great Vibes', 'Mr De Haviland', 'Playfair Display', cursive;
             font-weight: 400;
             font-style: italic;
@@ -92,22 +68,46 @@
             text-shadow: 0 4px 18px rgba(0,0,0,0.25);
             
             /* Главное — адаптивный размер через clamp */
-            font-size: clamp(28px, 10vw, 88px);
+         /*   font-size: clamp(28px, 10vw, 88px);
             
             /* Перенос строк при необходимости */
-            white-space: normal;
+         /*   white-space: normal;
             word-break: keep-all;
             line-height: 1.2;
             
             /* Отступы от краёв */
-            padding: 0 16px;
+         /*   padding: 0 16px;
             
             /* Плавный межбуквенный интервал */
-            letter-spacing: 0.02em;
-        }
+         /*   letter-spacing: 0.02em;
+        } */
+
+.hero h1 {
+    font-family: 'Great Vibes', 'Mr De Haviland', 'Playfair Display', cursive;
+    font-weight: 400;
+    font-style: italic;
+    color: white;
+    text-shadow: 0 4px 18px rgba(0,0,0,0.25);
+    
+    /* Главное изменение: используем 15vw (15% от ширины экрана) */
+    font-size: clamp(42px, 15vw, 110px);
+    
+    white-space: nowrap;
+    letter-spacing: 0.05em;
+    padding: 0 12px;
+}
+
+/* На очень маленьких экранах разрешаем перенос */
+@media (max-width: 450px) {
+    .hero h1 {
+        white-space: normal;
+        line-height: 1.2;
+        font-size: clamp(38px, 13vw, 60px);
+    }
+}        
 
 /* Тонкая настройка для совсем маленьких */
-@media (max-width: 400px) {
+/*@media (max-width: 400px) {
     .hero h1 {
         font-size: clamp(26px, 8vw, 36px);
         letter-spacing: 1px;
@@ -115,19 +115,19 @@
 }
 
 /* Для больших экранов */
-@media (min-width: 1200px) {
+/*@media (min-width: 1200px) {
     .hero h1 {
         font-size: clamp(72px, 6vw, 110px);
     }
 }        
 
         /* Дополнительная защита для очень маленьких экранов */
-        @media (max-width: 480px) {
+  /*     @media (max-width: 480px) {
             .hero h1 {
                 font-size: clamp(32px, 7vw, 48px);
                 letter-spacing: 2px;
             }
-        }
+        }*/
 
         .date {
             margin-top: 20px;
