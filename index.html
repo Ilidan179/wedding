@@ -65,7 +65,7 @@
             transform: scaleX(1.05);
         } */
 
-        .hero h1 {
+        /* .hero h1 {
             font-family: 'Great Vibes', 'Mr De Haviland', 'Playfair Display', cursive;
             font-size: clamp(36px, 8vw, 110px);
             font-weight: 400;
@@ -77,7 +77,44 @@
             word-break: keep-all;
             line-height: 1.2;
             padding: 0 12px;
-        }
+        } */
+
+.hero h1 {
+    font-family: 'Great Vibes', 'Mr De Haviland', 'Playfair Display', cursive;
+    font-weight: 400;
+    font-style: italic;
+    color: white;
+    text-shadow: 0 4px 18px rgba(0,0,0,0.25);
+    
+    /* Главное — адаптивный размер через clamp */
+    font-size: clamp(28px, 10vw, 88px);
+    
+    /* Перенос строк при необходимости */
+    white-space: normal;
+    word-break: keep-all;
+    line-height: 1.2;
+    
+    /* Отступы от краёв */
+    padding: 0 16px;
+    
+    /* Плавный межбуквенный интервал */
+    letter-spacing: 0.02em;
+}
+
+/* Тонкая настройка для совсем маленьких */
+@media (max-width: 400px) {
+    .hero h1 {
+        font-size: clamp(26px, 8vw, 36px);
+        letter-spacing: 1px;
+    }
+}
+
+/* Для больших экранов */
+@media (min-width: 1200px) {
+    .hero h1 {
+        font-size: clamp(72px, 6vw, 110px);
+    }
+}        
 
         /* Дополнительная защита для очень маленьких экранов */
         @media (max-width: 480px) {
@@ -339,7 +376,7 @@
 <section class="hero">
     <div class="hero-content">
         <h1>Ляйсан & Вильдан</h1>
-        <div class="date">18 июля 2026 г</div>
+        <div class="date">18 июля 2026</div>
     </div>
 </section>
 
@@ -610,4 +647,66 @@
     })();
 </script>
 </body>
+
+<!-- <script>
+(function() {
+    // Автоматическая подстройка размера заголовка под любой экран
+    function autoResizeHeadline() {
+        const headline = document.querySelector('.hero h1');
+        if (!headline) return;
+        
+        const screenWidth = window.innerWidth;
+        let fontSize;
+        
+        // Гибкая формула: размер = ширина экрана / 8, но с ограничениями
+        if (screenWidth <= 380) {
+            fontSize = 32; // очень маленькие телефоны
+        } else if (screenWidth <= 480) {
+            fontSize = 38; // iPhone SE, маленькие
+        } else if (screenWidth <= 600) {
+            fontSize = 44; // средние телефоны
+        } else if (screenWidth <= 768) {
+            fontSize = 52; // большие телефоны / маленькие планшеты
+        } else {
+            fontSize = 72; // десктопы
+        }
+        
+        // Дополнительная умная подстройка по длине текста
+        const textLength = headline.innerText.length;
+        if (textLength > 15 && screenWidth < 500) {
+            fontSize = fontSize - 4; // если текст длинный, делаем чуть меньше
+        }
+        
+        headline.style.fontSize = fontSize + 'px';
+        
+        // Проверяем, не вылезает ли текст за пределы
+        const container = headline.parentElement;
+        if (container) {
+            const containerWidth = container.clientWidth;
+            const headlineWidth = headline.scrollWidth;
+            
+            // Если текст всё ещё вылезает, уменьшаем ещё
+            if (headlineWidth > containerWidth - 20) {
+                let newSize = fontSize;
+                while (headlineWidth > containerWidth - 20 && newSize > 24) {
+                    newSize = newSize - 1;
+                    headline.style.fontSize = newSize + 'px';
+                    if (headline.scrollWidth <= containerWidth - 20) break;
+                }
+            }
+        }
+    }
+    
+    // Запускаем сразу
+    autoResizeHeadline();
+    
+    // Запускаем при повороте экрана и изменении размера
+    window.addEventListener('resize', autoResizeHeadline);
+    window.addEventListener('orientationchange', autoResizeHeadline);
+    
+    // Дополнительный запуск после полной загрузки страницы
+    setTimeout(autoResizeHeadline, 100);
+})();
+</script> -->
+
 </html>
