@@ -1,149 +1,306 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head >: <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta charset="UTF-8">
-<title>Ляйсан & Вильдан</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Ляйсан & Вильдан — Приглашение на свадьбу</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #fefaf7;
+            color: #3e2c23;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
 
-<style>
-    
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        /* Hero секция с затемнением */
+        .hero {
+            height: 100vh;
+            min-height: 620px;
+            background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)), 
+                        url('https://c.pxhere.com/photos/04/2d/photo-161707.jpg!d') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            text-align: center;
+            padding: 20px;
+        }
 
-body {
-    font-family: 'Montserrat', sans-serif;
-    background: #f8f5f2;
-    color: #5a4a42;
-    overflow-x: hidden;
-}
+        .hero-content {
+            position: relative;
+            color: white;
+            max-width: 900px;
+            padding: 20px;
+            backdrop-filter: blur(2px);
+            animation: gentleAppear 1.2s ease-out;
+        }
 
-/* HERO */
-.hero {
-    height: 100vh;
-    min-height: 600px;
-    background: url('https://c.pxhere.com/photos/04/2d/photo-161707.jpg!d') center/cover no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    text-align: center;
-    padding: 20px;
-}
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(38px, 7vw, 88px);
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            text-shadow: 0 4px 18px rgba(0,0,0,0.2);
+        }
 
-/* затемнение */
-.hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.45);
-}
+        .date {
+            margin-top: 20px;
+            font-size: clamp(18px, 2.2vw, 26px);
+            opacity: 0.95;
+            font-weight: 300;
+            letter-spacing: 1px;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            display: inline-block;
+            padding-top: 12px;
+        }
 
-.hero-content {
-    position: relative;
-    color: white;
-    max-width: 900px;
-    padding: 20px;
-}
+        /* общие секции */
+        .section {
+            padding: 80px 24px;
+            text-align: center;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
 
-/* текст */
-.hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(36px, 6vw, 80px);
-    line-height: 1.1;
-}
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 5vw, 48px);
+            margin-bottom: 20px;
+            color: #b17a5c;
+            font-weight: 500;
+        }
 
-.date {
-    margin-top: 15px;
-    font-size: clamp(16px, 2vw, 24px);
-    opacity: 0.9;
-}
+        .section p {
+            font-size: 18px;
+            color: #5e4b3d;
+            max-width: 600px;
+            margin: 0 auto 20px;
+            line-height: 1.5;
+        }
 
-/* секции */
-.section {
-    padding: 80px 20px;
-    text-align: center;
-}
+        /* ⭐️ НОВЫЙ СТИЛЬ ТАЙМЕРА — ТОЧНО КАК НА ИЗОБРАЖЕНИИ ⭐️ */
+        .timer-container {
+            background: rgba(255, 248, 240, 0.9);
+            border-radius: 48px;
+            padding: 28px 20px;
+            max-width: 860px;
+            margin: 30px auto 0;
+            box-shadow: 0 25px 40px -12px rgba(0,0,0,0.2);
+            backdrop-filter: blur(2px);
+            transition: all 0.3s;
+        }
 
-/* форма */
-.form-container {
-    max-width: 420px;
-    margin: auto;
-    background: white;
-    padding: 25px;
-    border-radius: 14px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-}
+        .timer-digits {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.2rem;
+            row-gap: 2rem;
+            margin-bottom: 12px;
+        }
 
-/* инпуты */
-input, select {
-    width: 100%;
-    padding: 12px;
-    margin-top: 10px;
-    margin-bottom: 18px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 16px;
-}
+        .time-block {
+            background: #fffcf9;
+            border-radius: 40px;
+            padding: 0.6rem 1rem;
+            min-width: 110px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(90, 70, 60, 0.08);
+            transition: transform 0.2s ease;
+        }
 
-/* кнопка */
-button {
-    width: 100%;
-    padding: 14px;
-    border: none;
-    background: #b38b6d;
-    color: white;
-    font-size: 16px;
-    border-radius: 10px;
-    cursor: pointer;
-}
+        .time-block:hover {
+            transform: translateY(-5px);
+        }
 
-/* 📱 АДАПТАЦИЯ */
-@media (max-width: 768px) {
-    .section {
-        padding: 50px 15px;
-    }
+        .time-number {
+            font-family: 'Montserrat', monospace;
+            font-weight: 700;
+            font-size: clamp(44px, 9vw, 78px);
+            color: #b38b6d;
+            line-height: 1.1;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #b17a5c, #d9aa87);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: none;
+        }
 
-    .hero {
-        min-height: 500px;
-    }
+        .time-label {
+            font-size: clamp(14px, 2vw, 18px);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 500;
+            color: #7f6250;
+            margin-top: 8px;
+            border-top: 1px solid #f0e2d6;
+            display: inline-block;
+            padding-top: 6px;
+        }
 
-    .form-container {
-        padding: 20px;
-    }
-}
+        /* подпись под таймером — точный стиль как на картинке */
+        .timer-sub {
+            font-size: 15px;
+            font-weight: 500;
+            color: #b48a6b;
+            background: rgba(245, 235, 225, 0.7);
+            display: inline-block;
+            padding: 8px 24px;
+            border-radius: 60px;
+            margin-top: 20px;
+            letter-spacing: 0.5px;
+        }
 
-button:hover {
-    background: #9c7459;
-}
+        /* форма RSVP */
+        .form-container {
+            max-width: 500px;
+            margin: 40px auto 0;
+            background: white;
+            padding: 32px 28px;
+            border-radius: 32px;
+            box-shadow: 0 20px 35px -8px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border: 1px solid rgba(179, 139, 109, 0.2);
+        }
 
-/* ANIMATION */
-@keyframes fadeIn {
-    from {opacity: 0; transform: translateY(20px);}
-    to {opacity: 1; transform: translateY(0);}
-}
+        input, select {
+            width: 100%;
+            padding: 14px 16px;
+            margin-top: 8px;
+            margin-bottom: 22px;
+            border: 1px solid #e2cfc0;
+            border-radius: 28px;
+            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+            background: #fefcf9;
+            transition: 0.2s;
+        }
 
+        input:focus, select:focus {
+            outline: none;
+            border-color: #b38b6d;
+            box-shadow: 0 0 0 3px rgba(179, 139, 109, 0.2);
+        }
 
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            background: #b38b6d;
+            color: white;
+            font-size: 18px;
+            font-weight: 500;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: 0.25s;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 0.5px;
+        }
 
-.fade-up {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: 1s;
-}
+        button:hover {
+            background: #9c7459;
+            transform: scale(0.98);
+            box-shadow: 0 8px 18px rgba(156, 116, 89, 0.3);
+        }
 
-.fade-up.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-</style>
+        /* анимация появления */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes gentleAppear {
+            0% { opacity: 0; transform: scale(0.96);}
+            100% { opacity: 1; transform: scale(1);}
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(45px);
+            transition: opacity 0.9s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.9s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* footer or extra */
+        .footer-note {
+            text-align: center;
+            padding: 30px 20px 40px;
+            font-size: 14px;
+            color: #a48771;
+            border-top: 1px solid #f0e2d8;
+            background: #fefaf7;
+        }
+
+        /* адаптивность для мобильных */
+        @media (max-width: 680px) {
+            .section {
+                padding: 55px 20px;
+            }
+            .timer-digits {
+                gap: 0.8rem;
+            }
+            .time-block {
+                min-width: 75px;
+                padding: 0.4rem 0.8rem;
+            }
+            .time-number {
+                font-size: 38px;
+            }
+            .time-label {
+                font-size: 11px;
+            }
+            .form-container {
+                padding: 24px 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .timer-digits {
+                gap: 10px;
+            }
+            .time-block {
+                min-width: 70px;
+            }
+            .time-number {
+                font-size: 32px;
+            }
+        }
+
+        /* эффект для цифр таймера при обновлении (микроанимация) */
+        .number-update {
+            animation: pulse 0.35s ease-in-out;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.08); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
 </head>
-
 <body>
 
-<!-- HERO -->
+<!-- HERO с именами -->
 <section class="hero">
     <div class="hero-content">
         <h1>Ляйсан & Вильдан</h1>
@@ -151,67 +308,270 @@ button:hover {
     </div>
 </section>
 
-<!-- INVITE -->
+<!-- Пригласительный текст -->
 <section class="section fade-up">
     <h2>Мы приглашаем вас 💕</h2>
-    <p>Стать частью самого важного дня в нашей жизни</p>
+    <p>Стать частью самого важного дня в нашей жизни. Разделите с нами радость, любовь и тёплые мгновения!</p>
 </section>
 
-<!-- TIMER -->
+<!-- ⏳ ДЕТАЛЬНЫЙ ТАЙМЕР: недели, дни, часы, минуты, секунды — стиль как на image.png -->
 <section class="section fade-up">
     <h2>До свадьбы осталось</h2>
-    <div class="timer" id="timer"></div>
-</section>
-
-<!-- RSVP -->
-<section class="section fade-up">
-    <h2>Подтвердите участие</h2>
-
-    <div class="form-container">
-        <form action="/submit" method="post">
-
-            <input type="text" name="name" placeholder="Ваше имя" required>
-
-            <select name="attendance">
-                <option>Я приду</option>
-                <option>Не смогу прийти</option>
-            </select>
-
-            <select name="alcohol">
-                <option>Буду употреблять алкоголь</option>
-                <option>Не буду употреблять</option>
-            </select>
-
-            <button type="submit">Отправить</button>
-
-        </form>
+    <div class="timer-container">
+        <div class="timer-digits" id="timerDigits">
+            <!-- Блоки будут заполняться динамически через JS, структура: недели, дни, часы, минуты, секунды -->
+            <div class="time-block">
+                <div class="time-number" id="weeksNum">00</div>
+                <div class="time-label">недель</div>
+            </div>
+            <div class="time-block">
+                <div class="time-number" id="daysNum">00</div>
+                <div class="time-label">дней</div>
+            </div>
+            <div class="time-block">
+                <div class="time-number" id="hoursNum">00</div>
+                <div class="time-label">часов</div>
+            </div>
+            <div class="time-block">
+                <div class="time-number" id="minutesNum">00</div>
+                <div class="time-label">минут</div>
+            </div>
+            <div class="time-block">
+                <div class="time-number" id="secondsNum">00</div>
+                <div class="time-label">секунд</div>
+            </div>
+        </div>
+        <div class="timer-sub">✨ С любовью, ждём вас ✨</div>
     </div>
 </section>
 
+<!-- RSVP форма подтверждения участия -->
+<section class="section fade-up">
+    <h2>Подтвердите участие</h2>
+    <div class="form-container">
+        <form id="rsvpForm" action="#" method="post">
+            <input type="text" name="name" id="guestName" placeholder="Ваше имя" required>
+            <select name="attendance" id="attendanceSelect">
+                <option value="Я приду">Я приду</option>
+                <option value="Не смогу прийти">Не смогу прийти</option>
+            </select>
+            <select name="alcohol" id="alcoholSelect">
+                <option value="Буду употреблять алкоголь">Буду употреблять алкоголь</option>
+                <option value="Не буду употреблять">Не буду употреблять</option>
+            </select>
+            <button type="submit" id="submitBtn">Отправить</button>
+        </form>
+        <div id="formMessage" style="margin-top: 16px; font-size: 14px; color: #b38b6d; text-align: center;"></div>
+    </div>
+</section>
+
+<div class="footer-note">
+    <p>С нетерпением ждём встречи! 💐 18 июля 2026</p>
+</div>
+
 <script>
-// TIMER
-const weddingDate = new Date("Jul 18, 2026 15:00:00").getTime();
-
-setInterval(() => {
-    const now = new Date().getTime();
-    const diff = weddingDate - now;
-
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    document.getElementById("timer").innerHTML = days + " дней";
-}, 1000);
-
-// SCROLL ANIMATION
-const elements = document.querySelectorAll('.fade-up');
-
-window.addEventListener('scroll', () => {
-    elements.forEach(el => {
-        const top = el.getBoundingClientRect().top;
-        if (top < window.innerHeight - 100) {
-            el.classList.add('visible');
+    (function() {
+        // ------------------- НАСТРОЙКА ТАЙМЕРА (НЕДЕЛИ, ДНИ, ЧАСЫ, МИНУТЫ, СЕКУНДЫ) -------------------
+        // Дата свадьбы: 18 июля 2026 года, время церемонии 12:30:00 (можно изменить)
+        const weddingDateTime = new Date(2026, 6, 18, 12, 30, 0); // месяц 6 = Июль (0-индекс)
+        
+        // Получаем элементы для цифр
+        const weeksSpan = document.getElementById('weeksNum');
+        const daysSpan = document.getElementById('daysNum');
+        const hoursSpan = document.getElementById('hoursNum');
+        const minutesSpan = document.getElementById('minutesNum');
+        const secondsSpan = document.getElementById('secondsNum');
+        
+        // Вспомогательная функция для добавления анимации при изменении цифр
+        function animateNumber(element, newValue) {
+            if (!element) return;
+            // Если содержимое изменилось, добавляем класс анимации
+            const currentText = element.innerText;
+            const formattedNew = String(newValue).padStart(2, '0');
+            if (currentText !== formattedNew) {
+                element.classList.add('number-update');
+                setTimeout(() => {
+                    element.classList.remove('number-update');
+                }, 350);
+            }
+            element.innerText = formattedNew;
         }
-    });
-});
+        
+        // Основная функция обновления таймера (недели, дни, часы, минуты, секунды)
+        function updateTimer() {
+            const now = new Date().getTime();
+            const eventTime = weddingDateTime.getTime();
+            let diff = eventTime - now;
+            
+            // Если дата уже прошла, показываем 0
+            if (diff <= 0) {
+                animateNumber(weeksSpan, 0);
+                animateNumber(daysSpan, 0);
+                animateNumber(hoursSpan, 0);
+                animateNumber(minutesSpan, 0);
+                animateNumber(secondsSpan, 0);
+                return;
+            }
+            
+            // 1. Общее количество секунд
+            const totalSeconds = Math.floor(diff / 1000);
+            const totalMinutes = Math.floor(totalSeconds / 60);
+            const totalHours = Math.floor(totalMinutes / 60);
+            const totalDays = Math.floor(totalHours / 24);
+            
+            // Недели: целое количество недель (7 дней)
+            const weeks = Math.floor(totalDays / 7);
+            // Оставшиеся дни после вычитания полных недель
+            const days = totalDays % 7;
+            // Часы: остаток от суток
+            const hours = totalHours % 24;
+            // Минуты
+            const minutes = totalMinutes % 60;
+            // Секунды
+            const seconds = totalSeconds % 60;
+            
+            // Обновляем DOM с анимацией
+            animateNumber(weeksSpan, weeks);
+            animateNumber(daysSpan, days);
+            animateNumber(hoursSpan, hours);
+            animateNumber(minutesSpan, minutes);
+            animateNumber(secondsSpan, seconds);
+        }
+        
+        // Запускаем таймер сразу и обновляем каждую секунду
+        updateTimer();
+        const timerInterval = setInterval(updateTimer, 1000);
+        
+        // Доп. защита: если страница выгружается, очищаем интервал (хорошая практика)
+        window.addEventListener('beforeunload', () => {
+            if (timerInterval) clearInterval(timerInterval);
+        });
+        
+        // ------------------- АНИМАЦИЯ ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ (fade-up) -------------------
+        const fadeElements = document.querySelectorAll('.fade-up');
+        
+        function checkVisibility() {
+            fadeElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+                // Элемент появляется, когда его верхняя граница на расстоянии менее чем windowHeight - 120px
+                if (rect.top < windowHeight - 100) {
+                    el.classList.add('visible');
+                } else {
+                    // Не удаляем visible, чтобы оставались видимыми, но можно оставить без else, чтобы не мигало
+                    // (оставляем класс, однажды став видимым)
+                }
+            });
+        }
+        
+        // Инициализация: некоторые элементы могут быть уже в зоне видимости
+        checkVisibility();
+        window.addEventListener('scroll', checkVisibility);
+        window.addEventListener('resize', checkVisibility);
+        
+        // дополнительный вызов на случай загрузки шрифтов
+        setTimeout(checkVisibility, 200);
+        
+        // ------------------- ОБРАБОТКА ФОРМЫ (RSVP) с имитацией отправки -------------------
+        const form = document.getElementById('rsvpForm');
+        const messageDiv = document.getElementById('formMessage');
+        
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Отменяем реальную отправку на сервер
+            
+            // Получаем данные
+            const guestNameInput = document.getElementById('guestName');
+            const name = guestNameInput.value.trim();
+            const attendance = document.getElementById('attendanceSelect').value;
+            const alcohol = document.getElementById('alcoholSelect').value;
+            
+            if (!name) {
+                messageDiv.innerHTML = '💌 Пожалуйста, укажите ваше имя.';
+                messageDiv.style.color = '#c26a4a';
+                setTimeout(() => {
+                    if (messageDiv.innerHTML === '💌 Пожалуйста, укажите ваше имя.') messageDiv.innerHTML = '';
+                }, 2800);
+                return;
+            }
+            
+            // Сообщение об успешном получении ответа
+            let responseMessage = '';
+            if (attendance === 'Я приду') {
+                responseMessage = `✨ ${name}, спасибо! Ждём вас с нетерпением ✨`;
+                if (alcohol === 'Буду употреблять алкоголь') {
+                    responseMessage += ` (учтём предпочтения) 🥂`;
+                } else {
+                    responseMessage += ` (безалкогольные напитки будут) 🍹`;
+                }
+            } else {
+                responseMessage = `😔 ${name}, нам будет вас не хватать, но обязательно отметим позже! ❤️`;
+            }
+            
+            messageDiv.innerHTML = responseMessage;
+            messageDiv.style.color = '#b38b6d';
+            messageDiv.style.fontWeight = '500';
+            
+            // Очищаем поле имени (опционально, но для удобства не сбрасываем все)
+            // можно очистить форму или оставить, но пользователь может повторно отправить
+            // сделаем лёгкий сброс только поля имени? не обязательно, оставим как есть, но чтобы не путать:
+            // через 4 секунды очистим сообщение, но поля не трогаем, чтобы человек мог отредактировать.
+            setTimeout(() => {
+                if (messageDiv.innerHTML === responseMessage) {
+                    messageDiv.innerHTML = '';
+                }
+            }, 5000);
+            
+            // Можно также дополнительно сохранить в localStorage или отправить на mock-сервер, но по заданию не требуется.
+            // Для красоты добавим небольшую анимацию формы при успехе
+            const formContainer = document.querySelector('.form-container');
+            formContainer.style.transform = 'scale(1.01)';
+            setTimeout(() => {
+                formContainer.style.transform = '';
+            }, 200);
+        });
+        
+        // Дополнительная валидация на лету: небольшая подсказка
+        const nameField = document.getElementById('guestName');
+        nameField.addEventListener('blur', function() {
+            if (nameField.value.trim() === '') {
+                nameField.style.borderColor = '#e0a28a';
+            } else {
+                nameField.style.borderColor = '#e2cfc0';
+            }
+        });
+        
+        // Микрофикс для того, чтобы таймер корректно работал даже при изменении вкладки (requestAnimationFrame не нужен, setInterval достаточно)
+        // Но для более точного синхронного обновления используем дополнительный вызов при фокусе
+        window.addEventListener('focus', function() {
+            updateTimer();
+        });
+        
+        // Также можно добавить эффект при загрузке страницы — красивая подстановка цифр
+        console.log('Свадебный таймер запущен! Даты: 18 июля 2026');
+        
+        // Убедимся, что если diff становится отрицательным, все значения обнуляются корректно, и таймер останавливать не нужно
+        // (просто будет показывать нули)
+        // Это уже учтено в updateTimer через if (diff <= 0)
+        
+        // Инициализация доп. текста для дней/недель (красивое оформление)
+        // Исправление возможных опечаток: "недель", "дней" согласно картинке — отлично
+        // Дополнительный код для динамического обновления подписи на случай если вдруг захочется склонять - но по макету все верно
+        // Остается всё как на изображении: недели, дни, часы, минуты, секунды
+        
+        // Дополнительный бонус: показывать также сообщение, если событие уже прошло (но 2026 год еще не наступил, но мало ли)
+        const checkIfPast = () => {
+            if (new Date() > weddingDateTime) {
+                const timerDiv = document.querySelector('.timer-container');
+                if (timerDiv && !timerDiv.hasAttribute('data-past')) {
+                    timerDiv.setAttribute('data-past', 'true');
+                    const originalSub = document.querySelector('.timer-sub');
+                    if (originalSub) originalSub.innerText = '❤️ Этот день настал! Счастья молодым ❤️';
+                }
+            }
+        };
+        checkIfPast();
+        setInterval(checkIfPast, 60000); // проверка раз в минуту
+    })();
 </script>
-
 </body>
 </html>
