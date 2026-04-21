@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
+<head >: <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
 <title>Ляйсан & Вильдан</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
+    
 * {
     margin: 0;
     padding: 0;
@@ -21,94 +22,74 @@ body {
 }
 
 /* HERO */
-/* .hero {
-    height: 100vh;
-    background: url('https://images.unsplash.com/photo-1529636798458-92182e662485') center/cover no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    position: relative;
-} */
-
 .hero {
     height: 100vh;
-    /* background: url('https://images.unsplash.com/photo-1507504031003-b417219a0fde') center center / cover no-repeat; */
-    background: url('https://png.pngtree.com/background/20250107/original/pngtree-elegant-soft-blue-wedding-invitation-design-picture-image_16110779.jpg') center center / cover no-repeat;
+    min-height: 600px;
+    background: url('https://c.pxhere.com/photos/04/2d/photo-161707.jpg!d') center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
     position: relative;
+    text-align: center;
+    padding: 20px;
 }
 
+/* затемнение */
 .hero::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.45);
 }
 
 .hero-content {
     position: relative;
-    animation: fadeIn 2s ease;
-    max-width: 800px;
+    color: white;
+    max-width: 900px;
     padding: 20px;
 }
 
-@media (min-width: 768px) {
+/* текст */
 .hero h1 {
-    /* font-family: 'Playfair Display', serif; */
-    font-size: 80px;
-    letter-spacing: 2px;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 6vw, 80px);
+    line-height: 1.1;
 }
 
 .date {
-    margin-top: 20px;
-    font-size: 26px;
+    margin-top: 15px;
+    font-size: clamp(16px, 2vw, 24px);
+    opacity: 0.9;
 }
-}
 
-
-
-/* SECTION */
+/* секции */
 .section {
     padding: 80px 20px;
     text-align: center;
 }
 
-h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    margin-bottom: 20px;
-}
-
-/* TIMER */
-.timer {
-    font-size: 42px;
-    margin-top: 20px;
-}
-
-/* RSVP */
+/* форма */
 .form-container {
     max-width: 420px;
     margin: auto;
     background: white;
-    padding: 30px;
-    border-radius: 12px;
+    padding: 25px;
+    border-radius: 14px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
+/* инпуты */
 input, select {
     width: 100%;
     padding: 12px;
     margin-top: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
     border: 1px solid #ddd;
-    border-radius: 6px;
+    border-radius: 8px;
+    font-size: 16px;
 }
 
+/* кнопка */
 button {
     width: 100%;
     padding: 14px;
@@ -116,9 +97,23 @@ button {
     background: #b38b6d;
     color: white;
     font-size: 16px;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: 0.3s;
+}
+
+/* 📱 АДАПТАЦИЯ */
+@media (max-width: 768px) {
+    .section {
+        padding: 50px 15px;
+    }
+
+    .hero {
+        min-height: 500px;
+    }
+
+    .form-container {
+        padding: 20px;
+    }
 }
 
 button:hover {
