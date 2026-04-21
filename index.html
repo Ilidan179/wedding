@@ -53,7 +53,7 @@
             text-shadow: 0 4px 18px rgba(0,0,0,0.2);
         } */
 
-        .hero h1 {
+        /* .hero h1 {
             font-family: 'Mr De Haviland', 'Great Vibes', cursive;
             font-size: clamp(58px, 11vw, 130px);
             font-weight: 400;
@@ -63,6 +63,28 @@
             color: white;
             white-space: nowrap;
             transform: scaleX(1.05);
+        } */
+
+        .hero h1 {
+            font-family: 'Great Vibes', 'Mr De Haviland', 'Playfair Display', cursive;
+            font-size: clamp(36px, 8vw, 110px);
+            font-weight: 400;
+            font-style: italic;
+            letter-spacing: 4px;
+            text-shadow: 0 4px 18px rgba(0,0,0,0.25);
+            color: white;
+            white-space: normal;
+            word-break: keep-all;
+            line-height: 1.2;
+            padding: 0 12px;
+        }
+
+        /* Дополнительная защита для очень маленьких экранов */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: clamp(32px, 7vw, 48px);
+                letter-spacing: 2px;
+            }
         }
 
         .date {
