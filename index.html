@@ -412,6 +412,49 @@
             }
         }
 
+        /* ===== ЗАКРУГЛЁННАЯ ФОТОГРАФИЯ ===== */
+        .rounded-photo {
+            padding: 40px 24px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .photo-wrapper {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            border-radius: 48px;
+            overflow: hidden;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .photo-wrapper:hover {
+            transform: scale(1.02);
+            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .wedding-photo {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .photo-wrapper:hover .wedding-photo {
+            transform: scale(1.03);
+        }
+
+        /* Адаптация для мобильных */
+        @media (max-width: 680px) {
+            .rounded-photo {
+                padding: 30px 20px;
+            }
+            .photo-wrapper {
+                border-radius: 32px;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -448,6 +491,12 @@
     </div>
 </section>
 
+<!-- Закруглённая фотография из репозитория -->
+<section class="section rounded-photo fade-up">
+    <div class="photo-wrapper">
+        <img src="images/поцелуй.jpeg" alt="Ляйсан и Вильдан" class="wedding-photo">
+    </div>
+</section>
 
 
 <!-- ⏳ ДЕТАЛЬНЫЙ ТАЙМЕР: недели, дни, часы, минуты, секунды — стиль как на image.png -->
@@ -688,7 +737,7 @@
                 }
                 responseMessage = `✨ ${name}, спасибо! Ждём вас с нетерпением!${alcoholText}`;
             } else {
-                responseMessage = `😔 ${name}, нам будет вас не хватать, но обязательно отметим позже! ❤️`;
+                responseMessage = `😔 ${name}, нам будет вас не хватать💔`;
             }
             
             messageDiv.innerHTML = responseMessage;
