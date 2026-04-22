@@ -435,9 +435,13 @@
         }
 
         .wedding-photo {
+            /* width: 400px;
+            height: 400px; */
+
             width: 100%;
             height: auto;
             display: block;
+            object-position: 50% 0%;
             transition: transform 0.4s ease;
         }
 
@@ -454,6 +458,65 @@
                 border-radius: 32px;
             }
         }
+
+/* ===== ЗАКРУГЛЁННАЯ ФОТОГРАФИЯ ===== */
+.rounded-photo {
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.photo-wrapper {
+    width: 600px;
+    height: 550px;
+    border-radius: 48px;
+    overflow: hidden;
+    box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.15);
+    background: #f0e8e0;
+    position: relative;
+}
+
+.wedding-photo {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;        /* фото заполнит блок, обрезая лишнее */
+    object-position: 50% 40%; /* смещение: 50% по горизонтали, 40% по вертикали */
+}
+
+
+
+/* ===== ПОДПИСЬ ПОД ФОТО (как заголовок таймера) ===== */
+.podpis {
+    text-align: center;
+    margin-top: 12px;
+    padding: 0;
+}
+
+.photo-caption-light {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;        /* ← такой же размер, как "До свадьбы осталось" на телефоне */
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #b17a5c;         /* ← такой же цвет, как у заголовков секций */
+    background: transparent;
+    font-style: italic;     /* убираем курсив */
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 680px) {
+    .photo-caption-light {
+        font-size: 18px;    /* на телефоне чуть меньше */
+    }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 480px) {
+    .photo-caption-light {
+        font-size: 16px;
+    }
+}
 
     </style>
 </head>
@@ -493,11 +556,22 @@
 
 <!-- Закруглённая фотография из репозитория -->
 <section class="section rounded-photo fade-up">
-    <div class="photo-wrapper">
-        <img src="images/поцелуй.jpeg" alt="Ляйсан и Вильдан" class="wedding-photo">
+    <div class="photo-wrapper"         style="            width: 600px;
+            height: 550px;"> 
+
+
+        <!-- <img src="images/поцелуй.jpeg" alt="Ляйсан и Вильдан" class="wedding-photo"> -->
+        <img src="https://ilidan179.github.io/wedding/images/поцелуй.jpeg" class="wedding-photo">
+        
+
     </div>
+
+    
 </section>
 
+<section class="podpis"> 
+    <div class="photo-caption-light">«Через тернии к звёздам...»</div>
+</section>
 
 <!-- ⏳ ДЕТАЛЬНЫЙ ТАЙМЕР: недели, дни, часы, минуты, секунды — стиль как на image.png -->
 <section class="section fade-up">
