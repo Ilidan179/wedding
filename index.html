@@ -22,12 +22,18 @@
             scroll-behavior: smooth;
         }
 
+        :root {
+            --mountain-bg-hero: url('https://cynthasis.com/wp-content/uploads/2024/08/2151700198.jpg');
+            --mountain-bg-invite: url('https://avatars.mds.yandex.net/get-shedevrum/15388810/img_7d22b321ff4c11ef8c567a881592c178/orig'); /* замените на вашу вторую картинку */
+            --photo-bg_one: url('https://avatars.mds.yandex.net/get-shedevrum/14298849/img_166ef2ce9cc711efadbf5202cec5c768/orig')
+        }     
+
         /* Hero секция с затемнением */
         .hero {
             height: 100vh;
             min-height: 620px;
             background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)), 
-                        url('https://cynthasis.com/wp-content/uploads/2024/08/2151700198.jpg') center/cover no-repeat;
+                        var(--mountain-bg-hero) center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -44,43 +50,6 @@
             backdrop-filter: blur(2px);
             animation: gentleAppear 1.2s ease-out;
         }
-
-        /*.hero h1 {
-            font-family: 'Great Vibes', 'Mr De Haviland', 'Playfair Display', cursive;
-            font-size: clamp(38px, 7vw, 88px);
-            font-weight: 600;
-            text-shadow: 0 4px 18px rgba(0,0,0,0.2);
-
-            /* Плавный межбуквенный интервал */
-        /*    letter-spacing: 0.02em;
-
-            /* Отступы от краёв */
-        /*    padding: 0 16px;
-        } */
-
-        
-
-        /* .hero h1 {
-            font-family: 'Great Vibes', 'Mr De Haviland', 'Playfair Display', cursive;
-            font-weight: 400;
-            font-style: italic;
-            color: white;
-            text-shadow: 0 4px 18px rgba(0,0,0,0.25);
-            
-            /* Главное — адаптивный размер через clamp */
-         /*   font-size: clamp(28px, 10vw, 88px);
-            
-            /* Перенос строк при необходимости */
-         /*   white-space: normal;
-            word-break: keep-all;
-            line-height: 1.2;
-            
-            /* Отступы от краёв */
-         /*   padding: 0 16px;
-            
-            /* Плавный межбуквенный интервал */
-         /*   letter-spacing: 0.02em;
-        } */
 
 .hero h1 {
     font-family: 'Great Vibes', 'Mr De Haviland', 'Playfair Display', cursive;
@@ -106,29 +75,6 @@
     }
 }        
 
-/* Тонкая настройка для совсем маленьких */
-/*@media (max-width: 400px) {
-    .hero h1 {
-        font-size: clamp(26px, 8vw, 36px);
-        letter-spacing: 1px;
-    }
-}
-
-/* Для больших экранов */
-/*@media (min-width: 1200px) {
-    .hero h1 {
-        font-size: clamp(72px, 6vw, 110px);
-    }
-}        
-
-        /* Дополнительная защита для очень маленьких экранов */
-  /*     @media (max-width: 480px) {
-            .hero h1 {
-                font-size: clamp(32px, 7vw, 48px);
-                letter-spacing: 2px;
-            }
-        }*/
-
         .date {
             margin-top: 20px;
             font-size: clamp(18px, 2.2vw, 26px);
@@ -149,7 +95,7 @@
         }
 
         .section h2 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Great Vibes', 'Mr De Haviland', 'Playfair Display', cursive;/*'Playfair Display', serif; */
             font-size: clamp(28px, 5vw, 48px);
             margin-bottom: 20px;
             color: #b17a5c;
@@ -373,6 +319,99 @@
             50% { transform: scale(1.08); opacity: 1; }
             100% { transform: scale(1); opacity: 1; }
         }
+
+        /* Стили для красивого select с алкоголем */
+        #alcoholSelect {
+            background: #fefcf9;
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23b38b6d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
+            background-repeat: no-repeat;
+            background-position: right 18px center;
+            background-size: 14px;
+        }
+
+        label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+        }
+
+        /* Анимация при наведении на select */
+        #alcoholSelect:hover {
+            border-color: #b38b6d;
+            background-color: #fffaf5;
+        }        
+
+  
+
+
+        /* ===== СЕКЦИЯ ПРИГЛАШЕНИЯ НА ВСЮ ШИРИНУ ===== */
+        .invite-mountains-full {
+            position: relative;
+            width: 100%;
+            min-height: 500px;
+            background: var(--mountain-bg-invite) center/cover no-repeat;
+            background-attachment: scroll;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin: 0;
+            padding: 100px 24px;
+            overflow: hidden;
+            box-shadow: inset 0 8px 20px rgba(0,0,0,0.1), inset 0 -8px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Затемнение/прозрачность */
+        .invite-mountains-full .invite-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(1px);
+        }
+
+        /* Контент поверх */
+        .invite-mountains-full .invite-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            color: white;
+        }
+
+        .invite-mountains-full h2 {
+            font-family: 'Great Vibes', 'Mr De Haviland', 'Playfair Display', cursive;/*'Playfair Display', serif;*/
+            font-size: clamp(32px, 6vw, 52px);
+            margin-bottom: 24px;
+            color: white;
+            text-shadow: 0 2px 15px rgba(0,0,0,0.4);
+        }
+
+        .invite-mountains-full p {
+            font-size: clamp(16px, 3vw, 20px);
+            line-height: 1.6;
+            color: rgba(255,255,255,0.95);
+            text-shadow: 0 1px 8px rgba(0,0,0,0.3);
+        }
+
+        /* Убираем скругление и отступы */
+        .invite-mountains-full {
+            border-radius: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        /* Адаптация для мобильных */
+        @media (max-width: 680px) {
+            .invite-mountains-full {
+                padding: 60px 20px;
+                min-height: 400px;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -391,40 +430,51 @@
     </div>
 </section>
 
-<!-- Пригласительный текст -->
-<section class="section fade-up">
-    <h2>Мы приглашаем вас 💕</h2>
-    <p>Стать частью самого важного дня в нашей жизни. Разделите с нами радость, любовь и тёплые мгновения!</p>
+<!-- Пригласительный текст + фон с горами (на всю ширину) -->
+<section class="invite-mountains-full fade-up">
+    <div class="invite-overlay"></div>
+    <div class="invite-content">
+        <h2>Дорогой <br> 
+            Гость!</h2>
+        <p>
+            Мы рады сообщить Вам, что 18.07.2026<br>
+            состоится самое главное торжество в<br>
+            нашей жизни — день нашей свадьбы!<br>
+            Приглашаем Вас разделить с нами<br>
+            радость этого незабываемого дня.
+        </p>
+                <p class="signature" style="margin-top: 24px; font-family: 'Great Vibes', cursive; font-size: 28px;">Ждем Вас</p>
+        <p style="margin-top: 16px; font-size: 18px;">18.07.2026 в 12:30</p>
+    </div>
 </section>
+
+
 
 <!-- ⏳ ДЕТАЛЬНЫЙ ТАЙМЕР: недели, дни, часы, минуты, секунды — стиль как на image.png -->
 <section class="section fade-up">
     <h2>До свадьбы осталось</h2>
-    <div class="timer-container">
-        <div class="timer-digits" id="timerDigits">
-            <!-- Блоки будут заполняться динамически через JS, структура: недели, дни, часы, минуты, секунды -->
-            <div class="time-block">
-                <div class="time-number" id="weeksNum">00</div>
-                <div class="time-label">недель</div>
-            </div>
-            <div class="time-block">
-                <div class="time-number" id="daysNum">00</div>
-                <div class="time-label">дней</div>
-            </div>
-            <div class="time-block">
-                <div class="time-number" id="hoursNum">00</div>
-                <div class="time-label">часов</div>
-            </div>
-            <div class="time-block">
-                <div class="time-number" id="minutesNum">00</div>
-                <div class="time-label">минут</div>
-            </div>
-            <div class="time-block">
-                <div class="time-number" id="secondsNum">00</div>
-                <div class="time-label">секунд</div>
-            </div>
+    <div class="timer-digits" id="timerDigits">
+        <!-- Блоки будут заполняться динамически через JS, структура: недели, дни, часы, минуты, секунды -->
+        <div class="time-block">
+            <div class="time-number" id="weeksNum">00</div>
+            <div class="time-label" id="weeksLabel">недель</div>
         </div>
-        <div class="timer-sub">✨ С любовью, ждём вас ✨</div>
+        <div class="time-block">
+            <div class="time-number" id="daysNum">00</div>
+            <div class="time-label" id="daysLabel">дней</div>
+        </div>
+        <div class="time-block">
+            <div class="time-number" id="hoursNum">00</div>
+            <div class="time-label" id="hoursLabel">часов</div>
+        </div>
+        <div class="time-block">
+            <div class="time-number" id="minutesNum">00</div>
+            <div class="time-label" id="minutesLabel">минут</div>
+        </div>
+        <div class="time-block">
+            <div class="time-number" id="secondsNum">00</div>
+            <div class="time-label" id="secondsLabel">секунд</div>
+        </div>
     </div>
 </section>
 
@@ -434,14 +484,26 @@
     <div class="form-container">
         <form id="rsvpForm" action="#" method="post">
             <input type="text" name="name" id="guestName" placeholder="Ваше имя" required>
+            
             <select name="attendance" id="attendanceSelect">
                 <option value="Я приду">Я приду</option>
                 <option value="Не смогу прийти">Не смогу прийти</option>
             </select>
+            
+            <!-- НОВЫЙ ВОПРОС ПРО АЛКОГОЛЬ -->
+            <label style="display: block; text-align: left; margin-bottom: 4px; font-weight: 500; color: #7f6250;">Какой алкоголь вы предпочитаете?</label>
             <select name="alcohol" id="alcoholSelect">
-                <option value="Буду употреблять алкоголь">Буду употреблять алкоголь</option>
-                <option value="Не буду употреблять">Не буду употреблять</option>
+                <option value="" disabled selected>— выберите вариант —</option>
+                <option value="Вино (красное/белое)">🍷 Вино (красное/белое)</option>
+                <option value="Шампанское">🥂 Шампанское</option>
+                <option value="Водка">🥃 Водка</option>
+                <option value="Коньяк">🥃 Коньяк</option>
+                <option value="Пиво">🍺 Пиво</option>
+                <option value="Коктейли">🍹 Коктейли</option>
+                <option value="Не употребляю алкоголь">🚫 Не употребляю алкоголь</option>
+                <option value="Всё равно / любой">✨ Всё равно / любой</option>
             </select>
+            
             <button type="submit" id="submitBtn">Отправить</button>
         </form>
         <div id="formMessage" style="margin-top: 16px; font-size: 14px; color: #b38b6d; text-align: center;"></div>
@@ -458,7 +520,19 @@
         // Дата свадьбы: 18 июля 2026 года, время церемонии 12:30:00 (можно изменить)
         const weddingDateTime = new Date(2026, 6, 18, 12, 30, 0); // месяц 6 = Июль (0-индекс)
 
-        
+        // Функция склонения числительных
+        function declensionNum(number, words) {
+            // words = [для 1, для 2-4, для 5-20]
+            const cases = [2, 0, 1, 1, 1, 2];
+            const index = (number % 100 > 4 && number % 100 < 20) ? 2 : cases[Math.min(number % 10, 5)];
+            return words[index];
+        }
+
+        // Примеры использования:
+        // declensionNum(5, ['день', 'дня', 'дней']) → 'дней'
+        // declensionNum(1, ['час', 'часа', 'часов']) → 'час'
+        // declensionNum(3, ['минута', 'минуты', 'минут']) → 'минуты'
+
         // Получаем элементы для цифр
         const weeksSpan = document.getElementById('weeksNum');
         const daysSpan = document.getElementById('daysNum');
@@ -494,6 +568,13 @@
                 animateNumber(hoursSpan, 0);
                 animateNumber(minutesSpan, 0);
                 animateNumber(secondsSpan, 0);
+                
+                // Обновляем подписи с правильным склонением для нуля
+                document.getElementById('weeksLabel').innerText = declensionNum(0, ['неделя', 'недели', 'недель']);
+                document.getElementById('daysLabel').innerText = declensionNum(0, ['день', 'дня', 'дней']);
+                document.getElementById('hoursLabel').innerText = declensionNum(0, ['час', 'часа', 'часов']);
+                document.getElementById('minutesLabel').innerText = declensionNum(0, ['минута', 'минуты', 'минут']);
+                document.getElementById('secondsLabel').innerText = declensionNum(0, ['секунда', 'секунды', 'секунд']);
                 return;
             }
             
@@ -520,6 +601,13 @@
             animateNumber(hoursSpan, hours);
             animateNumber(minutesSpan, minutes);
             animateNumber(secondsSpan, seconds);
+            
+            // Обновляем подписи с правильным склонением
+            document.getElementById('weeksLabel').innerText = declensionNum(weeks, ['неделя', 'недели', 'недель']);
+            document.getElementById('daysLabel').innerText = declensionNum(days, ['день', 'дня', 'дней']);
+            document.getElementById('hoursLabel').innerText = declensionNum(hours, ['час', 'часа', 'часов']);
+            document.getElementById('minutesLabel').innerText = declensionNum(minutes, ['минута', 'минуты', 'минут']);
+            document.getElementById('secondsLabel').innerText = declensionNum(seconds, ['секунда', 'секунды', 'секунд']);
         }
         
         // Запускаем таймер сразу и обновляем каждую секунду
@@ -556,18 +644,17 @@
         // дополнительный вызов на случай загрузки шрифтов
         setTimeout(checkVisibility, 200);
         
-        // ------------------- ОБРАБОТКА ФОРМЫ (RSVP) с имитацией отправки -------------------
+        // ------------------- ОБРАБОТКА ФОРМЫ (RSVP) с новым алкогольным вопросом -------------------
         const form = document.getElementById('rsvpForm');
         const messageDiv = document.getElementById('formMessage');
-        
+
         form.addEventListener('submit', function(event) {
-            event.preventDefault(); // Отменяем реальную отправку на сервер
+            event.preventDefault();
             
-            // Получаем данные
             const guestNameInput = document.getElementById('guestName');
             const name = guestNameInput.value.trim();
             const attendance = document.getElementById('attendanceSelect').value;
-            const alcohol = document.getElementById('alcoholSelect').value;
+            const alcoholPreference = document.getElementById('alcoholSelect').value;
             
             if (!name) {
                 messageDiv.innerHTML = '💌 Пожалуйста, укажите ваше имя.';
@@ -578,15 +665,28 @@
                 return;
             }
             
-            // Сообщение об успешном получении ответа
+            // Проверка выбора алкоголя (если гость идёт и не выбрал алкоголь)
+            if (attendance === 'Я приду' && (!alcoholPreference || alcoholPreference === '' || alcoholPreference.startsWith('—'))) {
+                messageDiv.innerHTML = '🍷 Пожалуйста, выберите предпочтения по алкоголю (или вариант "Не употребляю")';
+                messageDiv.style.color = '#c26a4a';
+                setTimeout(() => {
+                    if (messageDiv.innerHTML === '🍷 Пожалуйста, выберите предпочтения по алкоголю (или вариант "Не употребляю")') messageDiv.innerHTML = '';
+                }, 3000);
+                return;
+            }
+            
             let responseMessage = '';
+            
             if (attendance === 'Я приду') {
-                responseMessage = `✨ ${name}, спасибо! Ждём вас с нетерпением ✨`;
-                if (alcohol === 'Буду употреблять алкоголь') {
-                    responseMessage += ` (учтём предпочтения) 🥂`;
+                let alcoholText = '';
+                if (alcoholPreference === 'Не употребляю алкоголь') {
+                    alcoholText = ' 🧃 безалкогольные напитки будут!';
+                } else if (alcoholPreference === 'Всё равно / любой') {
+                    alcoholText = ' 🎉 учтём разнообразие!';
                 } else {
-                    responseMessage += ` (безалкогольные напитки будут) 🍹`;
+                    alcoholText = ` 🥂 учтём — ${alcoholPreference}`;
                 }
+                responseMessage = `✨ ${name}, спасибо! Ждём вас с нетерпением!${alcoholText}`;
             } else {
                 responseMessage = `😔 ${name}, нам будет вас не хватать, но обязательно отметим позже! ❤️`;
             }
@@ -595,18 +695,14 @@
             messageDiv.style.color = '#b38b6d';
             messageDiv.style.fontWeight = '500';
             
-            // Очищаем поле имени (опционально, но для удобства не сбрасываем все)
-            // можно очистить форму или оставить, но пользователь может повторно отправить
-            // сделаем лёгкий сброс только поля имени? не обязательно, оставим как есть, но чтобы не путать:
-            // через 4 секунды очистим сообщение, но поля не трогаем, чтобы человек мог отредактировать.
+            // Очищаем сообщение через 5 секунд
             setTimeout(() => {
                 if (messageDiv.innerHTML === responseMessage) {
                     messageDiv.innerHTML = '';
                 }
             }, 5000);
             
-            // Можно также дополнительно сохранить в localStorage или отправить на mock-сервер, но по заданию не требуется.
-            // Для красоты добавим небольшую анимацию формы при успехе
+            // Лёгкая анимация формы
             const formContainer = document.querySelector('.form-container');
             formContainer.style.transform = 'scale(1.01)';
             setTimeout(() => {
