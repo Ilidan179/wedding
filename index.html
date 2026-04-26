@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Ляйсан & Вильдан — Приглашение на свадьбу</title>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href= "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&family=Mr+De+Haviland&display=swap" rel="stylesheet">
     <style>
         * {
@@ -23,8 +23,8 @@
         }
 
         :root {
-            --mountain-bg-hero: url('https://cynthasis.com/wp-content/uploads/2024/08/2151700198.jpg');
-            --mountain-bg-invite: url('https://avatars.mds.yandex.net/get-shedevrum/15388810/img_7d22b321ff4c11ef8c567a881592c178/orig'); /* замените на вашу вторую картинку */
+            --mountain-bg-hero: url('https://ilidan179.github.io/wedding/а первый заголовок.jpg'); /*https://cynthasis.com/wp-content/uploads/2024/08/2151700198.jpg */
+            --mountain-bg-invite: url('https://ilidan179.github.io/wedding/images/б второй заголовок.webp'); /* https://avatars.mds.yandex.net/get-shedevrum/15388810/img_7d22b321ff4c11ef8c567a881592c178/orig */
             --photo-bg_one: url('https://avatars.mds.yandex.net/get-shedevrum/14298849/img_166ef2ce9cc711efadbf5202cec5c768/orig')
         }     
 
@@ -839,65 +839,5 @@
 </script>
 </body>
 
-<!-- <script>
-(function() {
-    // Автоматическая подстройка размера заголовка под любой экран
-    function autoResizeHeadline() {
-        const headline = document.querySelector('.hero h1');
-        if (!headline) return;
-        
-        const screenWidth = window.innerWidth;
-        let fontSize;
-        
-        // Гибкая формула: размер = ширина экрана / 8, но с ограничениями
-        if (screenWidth <= 380) {
-            fontSize = 32; // очень маленькие телефоны
-        } else if (screenWidth <= 480) {
-            fontSize = 38; // iPhone SE, маленькие
-        } else if (screenWidth <= 600) {
-            fontSize = 44; // средние телефоны
-        } else if (screenWidth <= 768) {
-            fontSize = 52; // большие телефоны / маленькие планшеты
-        } else {
-            fontSize = 72; // десктопы
-        }
-        
-        // Дополнительная умная подстройка по длине текста
-        const textLength = headline.innerText.length;
-        if (textLength > 15 && screenWidth < 500) {
-            fontSize = fontSize - 4; // если текст длинный, делаем чуть меньше
-        }
-        
-        headline.style.fontSize = fontSize + 'px';
-        
-        // Проверяем, не вылезает ли текст за пределы
-        const container = headline.parentElement;
-        if (container) {
-            const containerWidth = container.clientWidth;
-            const headlineWidth = headline.scrollWidth;
-            
-            // Если текст всё ещё вылезает, уменьшаем ещё
-            if (headlineWidth > containerWidth - 20) {
-                let newSize = fontSize;
-                while (headlineWidth > containerWidth - 20 && newSize > 24) {
-                    newSize = newSize - 1;
-                    headline.style.fontSize = newSize + 'px';
-                    if (headline.scrollWidth <= containerWidth - 20) break;
-                }
-            }
-        }
-    }
-    
-    // Запускаем сразу
-    autoResizeHeadline();
-    
-    // Запускаем при повороте экрана и изменении размера
-    window.addEventListener('resize', autoResizeHeadline);
-    window.addEventListener('orientationchange', autoResizeHeadline);
-    
-    // Дополнительный запуск после полной загрузки страницы
-    setTimeout(autoResizeHeadline, 100);
-})();
-</script> -->
 
 </html>
