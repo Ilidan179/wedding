@@ -1436,6 +1436,41 @@
     ymaps.ready(initMap);
 </script>
 
+<script>
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzqxcWaKcgXRrjbsX0PhLWjzsWas-rQ0gVnnWpdeOeq4TZ_yv78igEcH0rno4QO3_y5Ig/exec';  // замените на скопированный URL
+    
+    document.getElementById('rsvpForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('guestName').value.trim();
+        const attendance = document.getElementById('attendanceSelect').value;
+        const alcohol = document.getElementById('alcoholSelect').value;
+        
+        if (!name) {
+            document.getElementById('formMessage').innerHTML = '💌 Пожалуйста, укажите ваше имя.';
+            return;
+        }
+        
+        try {
+            const response = await fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, attendance, alcohol })
+            });
+            
+            document.getElementById('formMessage').innerHTML = '✅ Спасибо! Ваш ответ сохранён. Ждём вас! 💐';
+            document.getElementById('rsvpForm').reset();
+        } catch (error) {
+            document.getElementById('formMessage').innerHTML = '❌ Ошибка. Попробуйте позже.';
+        }
+        
+        setTimeout(() => {
+            document.getElementById('formMessage').innerHTML = '';
+        }, 5000);
+    });
+</script>
+
 </body>
 
 
