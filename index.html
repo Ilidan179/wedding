@@ -943,22 +943,6 @@
 
 /* ===== ДОПОЛНИТЕЛЬНОЕ РАЗМЫТИЕ ===== */
 
-
-/* Второе фото — чистое размытие без белого цвета */
-/* .invite-mountains-full::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 80px;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    background: transparent;
-    pointer-events: none;
-    z-index: 3;
-} */
-
 /* 2. Третье фото (ваше фото) — размытие слева и справа */
 .photo-wrapper {
     position: relative;
@@ -992,6 +976,112 @@
         transparent 100%);
     pointer-events: none;
     z-index: 3;
+}
+
+/* ===== БЛОК ВЕДУЩЕГО ===== */
+.host-card {
+    background: white;
+    border-radius: 48px;
+    padding: 35px 30px;
+    max-width: 550px;
+    margin: 30px auto;
+    text-align: center;
+    box-shadow: 0 20px 35px -12px rgba(90, 60, 40, 0.12);
+    border: 1px solid rgba(179, 139, 109, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.host-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 40px -12px rgba(90, 60, 40, 0.2);
+}
+
+.host-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.host-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: #b17a5c;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.host-divider {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(to right, #d4c0b0, #b38b6d, #d4c0b0);
+    margin: 0 auto 20px;
+}
+
+.host-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #5e4b3d;
+    margin-bottom: 20px;
+}
+
+.host-contact {
+    background: #fef5ed;
+    border-radius: 60px;
+    padding: 12px 20px;
+    display: inline-block;
+    width: auto;
+    min-width: 250px;
+}
+
+.host-label {
+    font-family: 'Playfair Display', serif;  /* ← меняем шрифт */
+    font-size: 22px;
+    font-weight: 500;
+    font-style: italic;  /* лёгкий курсив для элегантности */
+    color: #b17a5c;
+    margin-right: 15px;
+}
+
+.host-phone {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #b38b6d;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.host-phone:hover {
+    color: #9c7459;
+    text-decoration: underline;
+}
+
+.host-note {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-style: italic;
+    color: #a4836a;
+    margin-top: 15px;
+}
+
+@media (max-width: 550px) {
+    .host-card {
+        padding: 25px 20px;
+        margin: 20px 16px;
+        border-radius: 36px;
+    }
+    .host-title {
+        font-size: 20px;
+    }
+    .host-label {
+        font-size: 18px;
+        display: block;
+        margin-bottom: 8px;
+        margin-right: 0;
+    }
+    .host-contact {
+        display: block;
+    }
 }
 
     </style>
@@ -1184,8 +1274,8 @@
                 <option value="Шампанское">🥂 Шампанское</option>
                 <option value="Водка">🥃 Водка</option>
                 <option value="Коньяк">🥃 Коньяк</option>
-                <option value="Пиво">🍺 Пиво</option>
-                <option value="Коктейли">🍹 Коктейли</option>
+                <!-- <option value="Пиво">🍺 Пиво</option> -->
+                <!-- <option value="Коктейли">🍹 Коктейли</option> -->
                 <option value="Не употребляю алкоголь">🚫 Не употребляю алкоголь</option>
                 <option value="Всё равно / любой">✨ Всё равно / любой</option>
             </select>
@@ -1210,6 +1300,23 @@
         <a href="https://yandex.ru/maps/-/CPG94UJ3" target="_blank" class="map-button">Открыть в Яндекс.Картах</a>
     </div>
 </section>
+
+
+<!-- Блок ведущего -->
+<div class="host-card fade-up">
+    
+    <h3 class="host-title">Ведущий торжества</h3>
+    <div class="host-divider"></div>
+    <p class="host-text">
+        Если у Вас есть сюрприз, творческий номер или вопрос — 
+        Вы всегда можете обратиться к нашему ведущему 😉
+    </p>
+    <div class="host-contact">
+        <span class="host-label">Адель</span>
+        <a href="tel:+79376002608" class="host-phone">📞 +7 937 600-26-08</a>
+    </div>
+    
+</div>
 
 <div class="footer-note">
     <p>Будем ждать Вас<br>
